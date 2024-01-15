@@ -2,6 +2,12 @@ import client from "../helpers/api";
 
 const postsEndpoint = `/posts`;
 
+const validateField = (field, fieldName) => {
+  if (!field) {
+    throw new Error(`Validation failed: ${fieldName} is required.`);
+  }
+};
+
 export const findAll = async (req, res) => {
   try {
     const response = await client.get(postsEndpoint);
@@ -43,13 +49,22 @@ export const findByPk = async (req, res) => {
 
 export const create = async (req, res) => {
   try {
-    const data = req.body;
+    const { title, body, userId } = req.body;
 
-    const postResponse = await client.post(postsEndpoint, data);
+    // Fields validation
+    validateField(title, "Title");
+    validateField(body, "Body");
+    validateField(userId, "User ID");
+
+    const postResponse = await client.post(postsEndpoint, {
+      title,
+      body,
+      userId,
+    });
     const post = postResponse.data;
 
     return res.status(201).json(post);
   } catch (error) {
-    return res.status(400).json({ error: `An error occurred` });
+    return res.status(400).json({ error: error.message });
   }
 };

@@ -81,13 +81,49 @@ describe("Posts Controller", () => {
       expect(response.body).toEqual(mockData);
     });
 
-    it("should handle errors when creating a new post", async () => {
-      client.post.mockRejectedValueOnce();
+    it("should handle validation errors for missing title", async () => {
+      // Omitting the 'title' field on purpose
+      const invalidData = {
+        userId: 1,
+        body: "This is an invalid post.",
+      };
 
-      const response = await request.post("/posts").send(mockData);
+      const response = await request.post("/posts").send(invalidData);
 
       expect(response.status).toBe(400);
-      expect(response.body).toEqual({ error: "An error occurred" });
+      expect(response.body).toEqual({
+        error: "Validation failed: Title is required.",
+      });
+    });
+
+    it("should handle validation errors for missing body", async () => {
+      // Omitting the 'body' field on purpose
+      const invalidData = {
+        userId: 1,
+        title: "Invalid Post",
+      };
+
+      const response = await request.post("/posts").send(invalidData);
+
+      expect(response.status).toBe(400);
+      expect(response.body).toEqual({
+        error: "Validation failed: Body is required.",
+      });
+    });
+
+    it("should handle validation errors for missing userId", async () => {
+      // Omitting the 'userId' field on purpose
+      const invalidData = {
+        title: "Invalid Post",
+        body: "This is an invalid post.",
+      };
+
+      const response = await request.post("/posts").send(invalidData);
+
+      expect(response.status).toBe(400);
+      expect(response.body).toEqual({
+        error: "Validation failed: User ID is required.",
+      });
     });
   });
 });
