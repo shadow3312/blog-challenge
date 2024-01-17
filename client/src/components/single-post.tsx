@@ -3,6 +3,7 @@ import { Eye } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 type PostProps = {
   post: Post;
@@ -11,8 +12,6 @@ type PostProps = {
 };
 
 export default function Post({ post, postIndex, groupIndex }: PostProps) {
-  const randomNumber = generateRandomNumber();
-
   const renderTitle = (groupIndex: number, postIndex: number, text: string) => {
     if (groupIndex % 2 === 0) {
       // Left group
@@ -48,14 +47,20 @@ export default function Post({ post, postIndex, groupIndex }: PostProps) {
 
   return (
     <div
-      className={`relative p-4 border bg-cover bg-center rounded-lg ${renderClassName(
+      className={`relative p-4 border bg-cover bg-center ${renderClassName(
         groupIndex,
         postIndex
       )}`}
-      style={{
-        backgroundImage: `url(https://source.unsplash.com/random/${randomNumber})`,
-      }}
+      // style={{
+      //   backgroundImage: `url(${post.cover})`,
+      // }}
     >
+      <Image
+        fill
+        className="object-center object-cover pointer-events-none"
+        src={post.cover}
+        alt={post.title}
+      />
       <div className="card-overlay"></div>
       <div className="absolute flex justify-between items-center bottom-0 left-0 bg-primary p-4 w-full">
         <h3 className="mr-12 text-white capitalize">

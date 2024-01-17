@@ -1,6 +1,7 @@
-type Post {
-    id: number;
-    title: string;
-    body: string;
-    userId: number
-}
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+  cover: string;
+  userId: number;
+};

@@ -8,12 +8,32 @@ const validateField = (field, fieldName) => {
   }
 };
 
+const getRandomImage = async () => {
+  try {
+    const response = await client.get(
+      "https://random.imagecdn.app/v1/image?&format=json"
+    );
+    return response.data.url;
+  } catch (error) {
+    console.error("Error fetching random image:", error.message);
+    return null;
+  }
+};
+
 export const findAll = async (req, res) => {
   try {
     const response = await client.get(postsEndpoint);
     const { data } = response;
 
-    res.status(200).json(data);
+    // Add a 'cover' field to each post with a random image
+    const postsWithCover = await Promise.all(
+      data.map(async (post) => {
+        const cover = await getRandomImage();
+        return { ...post, cover };
+      })
+    );
+
+    res.status(200).json(postsWithCover);
   } catch (error) {
     res.status(500).json({ error: `An error occurred` });
   }
