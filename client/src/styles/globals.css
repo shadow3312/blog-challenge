@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 56 98% 53%;
+    --primary: 245 10% 21%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 243 26% 33%;
@@ -71,11 +71,15 @@
     @apply border-border;
   }
   main {
-    @apply flex min-h-screen flex-col items-center justify-between p-8;
+    @apply flex min-h-screen flex-col justify-between p-8;
   }
 
   h1 {
     @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg font-bold;
   }
 
   .nav-link {
@@ -88,5 +92,17 @@
 
   .main-nav {
     @apply mx-auto flex items-center justify-center mt-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] dark:bg-primary px-4 h-12 w-1/4 space-x-4 rounded-xl;
+  }
+
+  .large-card {
+    @apply md:col-span-2 md:h-[500px] h-[300px];
+  }
+
+  .small-card {
+    @apply md:col-span-1 md:h-[300px] h-[200px];
+  }
+
+  .card-overlay {
+    @apply absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b via-transparent from-gray-900 to-gray-900 dark:bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900;
   }
 }

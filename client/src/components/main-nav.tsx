@@ -11,7 +11,7 @@ export default function MainNav() {
   const isDark = theme === "dark";
 
   const toggleTheme = () => {
-    setTheme("");
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (
@@ -22,7 +22,7 @@ export default function MainNav() {
       <NavItem text="Add" link="/form">
         <PlusCircle className="icon" />
       </NavItem>
-      <NavItem icon onClick={() => setTheme(isDark ? "light" : "dark")}>
+      <NavItem icon onClick={toggleTheme}>
         {isDark ? <Moon className="icon" /> : <Sun className="icon" />}
       </NavItem>
     </div>
