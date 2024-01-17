@@ -6,12 +6,14 @@ type NavItemProps = {
   children: React.ReactNode;
   icon?: boolean;
   text?: string;
+  link?: string;
   onClick?: () => void;
 };
 export default function NavItem({
   children,
   icon = false,
   text,
+  link = "/",
   onClick,
 }: NavItemProps) {
   return (
@@ -21,7 +23,7 @@ export default function NavItem({
       size={icon ? "icon" : "default"}
       asChild
     >
-      <Link href={"/"} className="gap-x-1">
+      <Link href={link} className="gap-x-1">
         {children} {text}
       </Link>
     </Button>
