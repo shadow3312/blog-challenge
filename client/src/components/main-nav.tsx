@@ -9,7 +9,7 @@ export default function MainNav() {
       <NavItem text="Posts">
         <Files className="icon" />
       </NavItem>
-      <NavItem text="Add" link="/form">
+      <NavItem text="New" link="/posts/form">
         <PlusCircle className="icon" />
       </NavItem>
       <ThemeToggle />
