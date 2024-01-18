@@ -13,7 +13,7 @@ export default function NavItem({
   children,
   icon = false,
   text,
-  link = "/",
+  link = "/posts",
   onClick,
 }: NavItemProps) {
   return (

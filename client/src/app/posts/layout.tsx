@@ -1,3 +1,4 @@
+import MainNav from "@/components/main-nav";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <div>
-      {children} {modal}
+      <MainNav />
+      <main>
+        {children} {modal}
+      </main>
     </div>
   );
 }
