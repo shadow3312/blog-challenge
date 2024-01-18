@@ -91,7 +91,11 @@
   }
 
   .main-nav {
-    @apply mx-auto flex items-center justify-center mt-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] dark:bg-primary px-4 h-12 w-1/4 space-x-4 rounded-xl;
+    @apply mx-auto flex items-center justify-center mt-4 shadow dark:bg-primary px-4 h-12 md:w-1/4 w-2/3 space-x-4 rounded-xl;
+  }
+
+  .shadow {
+    @apply shadow-[0_3px_10px_rgb(0,0,0,0.2)];
   }
 
   .large-card {

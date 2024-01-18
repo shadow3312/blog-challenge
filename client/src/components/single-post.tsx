@@ -47,7 +47,7 @@ export default function Post({ post, postIndex, groupIndex }: PostProps) {
 
   return (
     <div
-      className={`relative p-4 border bg-cover bg-center ${renderClassName(
+      className={`relative p-4 border bg-cover rounded-xl bg-center ${renderClassName(
         groupIndex,
         postIndex
       )}`}
@@ -57,11 +57,11 @@ export default function Post({ post, postIndex, groupIndex }: PostProps) {
     >
       <Image
         fill
-        className="object-center object-cover pointer-events-none"
+        className="object-center object-cover pointer-events-none rounded-xl"
         src={post.cover}
         alt={post.title}
       />
-      <div className="card-overlay"></div>
+      <div className="card-overlay rounded-xl"></div>
       <div className="absolute flex justify-between items-center bottom-0 left-0 bg-primary p-4 w-full">
         <h3 className="mr-12 text-white capitalize">
           {renderTitle(groupIndex, postIndex, post.title)}

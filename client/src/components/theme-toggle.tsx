@@ -23,7 +23,7 @@ export default function ThemeToggle() {
     return <LoaderIcon className="animate-spin" />;
   }
   return (
-    <NavItem icon onClick={toggleTheme}>
+    <NavItem icon onClick={toggleTheme} link="#">
       {isDark ? <Sun className="icon" /> : <Moon className="icon" />}
     </NavItem>
   );

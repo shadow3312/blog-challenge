@@ -30,3 +30,13 @@ export const truncateText = (text: string, maxChars: number) => {
   }
   return "";
 };
+
+export function getInitials(fullName: string): string {
+  const nameParts = fullName.split(" ");
+
+  const initials = nameParts
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("");
+
+  return initials;
+}

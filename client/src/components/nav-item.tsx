@@ -13,7 +13,7 @@ export default function NavItem({
   children,
   icon = false,
   text,
-  link = "/posts",
+  link,
   onClick,
 }: NavItemProps) {
   return (
@@ -23,9 +23,11 @@ export default function NavItem({
       size={icon ? "icon" : "default"}
       asChild
     >
-      <Link href={link} className="gap-x-1">
-        {children} {text}
-      </Link>
+      {link && (
+        <Link href={link} className="gap-x-1">
+          {children} {text}
+        </Link>
+      )}
     </Button>
   );
 }

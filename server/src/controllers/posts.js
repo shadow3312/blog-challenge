@@ -49,16 +49,21 @@ export const findByPk = async (req, res) => {
 
     // Fetch the related user
     const { userId } = post;
-    const userResponse = await client.get(`/users/${userId}`);
-    const user = userResponse.data;
+    const authorResponse = await client.get(`/users/${userId}`);
+    const author = authorResponse.data;
 
     // Fetch comments
     const commentsResponse = await client.get(`/comments?postId=${post.id}`);
 
+    const comments = commentsResponse.data;
+
+    const postCover = await getRandomImage();
+    post.cover = postCover;
+
     const postData = {
-      post: postResponse.data,
-      author: userResponse.data,
-      comments: commentsResponse.data,
+      post,
+      author,
+      comments,
     };
 
     res.status(200).json(postData);

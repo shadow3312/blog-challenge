@@ -1,7 +1,7 @@
 import { apiRoot } from "@/contants";
 
-export default async function getAllPosts() {
-  const res = await fetch(`${apiRoot}/posts`, {
+export default async function getPost(id: number) {
+  const res = await fetch(`${apiRoot}/posts/${id}`, {
     next: { revalidate: 3600 },
   });
 

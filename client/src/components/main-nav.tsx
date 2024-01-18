@@ -6,7 +6,7 @@ import ThemeToggle from "./theme-toggle";
 export default function MainNav() {
   return (
     <div className="main-nav">
-      <NavItem text="Posts">
+      <NavItem text="Posts" link="/posts">
         <Files className="icon" />
       </NavItem>
       <NavItem text="New" link="/posts/form">
