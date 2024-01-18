@@ -51,27 +51,22 @@ export default function Post({ post, postIndex, groupIndex }: PostProps) {
         groupIndex,
         postIndex
       )}`}
-      // style={{
-      //   backgroundImage: `url(${post.cover})`,
-      // }}
     >
-      <Image
-        fill
-        className="object-center object-cover pointer-events-none rounded-xl"
-        src={post.cover}
-        alt={post.title}
-      />
-      <div className="card-overlay rounded-xl"></div>
-      <div className="absolute flex justify-between items-center bottom-0 left-0 bg-primary p-4 w-full">
-        <h3 className="mr-12 text-white capitalize">
-          {renderTitle(groupIndex, postIndex, post.title)}
-        </h3>
-        <Button asChild size={"icon"} className="bg-secondary">
-          <Link href={`/posts/${post.id}`}>
-            <Eye className="text-white" />
-          </Link>
-        </Button>
-      </div>
+      <Link href={`/posts/${post.id}`}>
+        <Image
+          fill
+          className="object-center object-cover pointer-events-none rounded-xl"
+          src={post.cover}
+          alt={post.title}
+        />
+
+        <div className="card-overlay rounded-xl"></div>
+        <div className="absolute flex  items-center bottom-0 left-0 bg-primary p-4 w-full">
+          <h3 className="mr-12 text-white capitalize text-sm md:text-xl">
+            {renderTitle(groupIndex, postIndex, post.title)}
+          </h3>
+        </div>
+      </Link>
     </div>
   );
 }
