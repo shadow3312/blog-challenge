@@ -23,15 +23,14 @@ describe("Posts components", () => {
 
     await waitFor(() => {
       // Check for correct rendered posts
-      expect(getByText("Post 1")).toBeInTheDocument();
-      expect(getByAltText("Post 1")).toBeInTheDocument();
-      expect(getByText("Post 2")).toBeInTheDocument();
-      expect(getByAltText("Post 2")).toBeInTheDocument();
-      expect(getByText("Post 3")).toBeInTheDocument();
-      expect(getByAltText("Post 3")).toBeInTheDocument();
+      mockPosts.forEach((post) => {
+        expect(getByText(post.title)).toBeInTheDocument();
+        expect(getByAltText(post.title)).toBeInTheDocument();
+      });
 
       // Check for the absence of "Post 4"
-      expect(queryByText("Post 4")).toBeNull();
+      const nonExistentPostTitle = "Post 4";
+      expect(queryByText(nonExistentPostTitle)).toBeNull();
     });
   });
 });
