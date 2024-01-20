@@ -1,10 +1,19 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+/**
+ * Merges CSS classes into a single string.
+ * @param inputs - Variable list of inputs representing CSS classes or class objects.
+ * @returns A resulting CSS class string after merging the inputs.
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/**
+ * Generates a random integer between 200 and 300.
+ * @returns A random integer between 200 and 300.
+ */
 export function generateRandomNumber(): number {
   const randomFraction: number = Math.random();
 
@@ -18,6 +27,12 @@ export function generateRandomNumber(): number {
   return Math.floor(finalRandomNumber);
 }
 
+/**
+ * Truncates a text string if it exceeds a certain maximum number of characters and adds ellipsis.
+ * @param text - The text string to truncate.
+ * @param maxChars - The maximum number of characters before truncation.
+ * @returns The truncated text string with ellipsis if necessary.
+ */
 export const truncateText = (text: string, maxChars: number) => {
   if (text) {
     let txt = text?.slice(0, maxChars);
@@ -31,6 +46,11 @@ export const truncateText = (text: string, maxChars: number) => {
   return "";
 };
 
+/**
+ * Returns the initials of a full name.
+ * @param fullName - The full name from which to extract the initials.
+ * @returns The initials of the full name.
+ */
 export function getInitials(fullName: string): string {
   const nameParts = fullName.split(" ");
 
