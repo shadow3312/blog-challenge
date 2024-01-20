@@ -48,7 +48,7 @@ export default async function Page({ params: { id } }: Props) {
           </div>
         </div>
         <div>
-          <h3 className="text-2xl mb-8">People reacting</h3>
+          <h3 className="text-2xl mb-8">{comments?.length} People reacting</h3>
           <Suspense fallback={<Loader />}>
             <Comments comments={comments} />
           </Suspense>

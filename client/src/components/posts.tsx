@@ -7,8 +7,8 @@ export default async function Posts() {
   const groupedPosts = [];
 
   // split posts in groups of 6
-  for (let i = 0; i < posts.length; i += 3) {
-    groupedPosts.push(posts.slice(i, i + 3));
+  for (let i = 0; i < posts?.length; i += 3) {
+    groupedPosts.push(posts?.slice(i, i + 3));
   }
   return (
     <div className="grid grid-cols-2 gap-2 md:gap-4">
