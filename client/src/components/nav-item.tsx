@@ -24,7 +24,7 @@ export default function NavItem({
       asChild
     >
       {link && (
-        <Link href={link} className="gap-x-1">
+        <Link href={link} className="gap-x-1" role="button">
           {children} {text}
         </Link>
       )}
