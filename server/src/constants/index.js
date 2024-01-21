@@ -1,3 +1,3 @@
 const apiRoot = "https://jsonplaceholder.typicode.com";
-
-export { apiRoot };
+const testCover = "test-cover";
+export { apiRoot, testCover };

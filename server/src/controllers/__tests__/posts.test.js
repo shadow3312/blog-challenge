@@ -1,6 +1,8 @@
 import supertest from "supertest";
 import client from "../../helpers/api";
 import { app, server } from "../..";
+import { getRandomImage } from "../posts";
+import { testCover } from "../../constants";
 
 jest.mock("../../helpers/api");
 
@@ -11,6 +13,7 @@ describe("Posts Controller", () => {
     userId: 1,
     title: "Test Post",
     body: "This is a test post.",
+    cover: testCover,
   };
 
   afterEach(() => {

@@ -1,4 +1,6 @@
+import axios from "axios";
 import client from "../helpers/api";
+import { testCover } from "../constants";
 
 const postsEndpoint = `/posts`;
 
@@ -8,9 +10,9 @@ const validateField = (field, fieldName) => {
   }
 };
 
-const getRandomImage = async () => {
+export const getRandomImage = async () => {
   try {
-    const response = await client.get(
+    const response = await axios.get(
       "https://random.imagecdn.app/v1/image?&format=json"
     );
     return response.data.url;
@@ -24,11 +26,12 @@ export const findAll = async (req, res) => {
   try {
     const response = await client.get(postsEndpoint);
     const { data } = response;
+    const isTest = process.env.NODE_ENV === "test";
 
     // Add a 'cover' field to each post with a random image
     const postsWithCover = await Promise.all(
       data.map(async (post) => {
-        const cover = await getRandomImage();
+        const cover = isTest ? testCover : await getRandomImage();
         return { ...post, cover };
       })
     );
