@@ -38,6 +38,10 @@ export default function PostForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     shouldUnregister: false,
+    defaultValues: {
+      title: "",
+      body: "",
+    },
   });
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
@@ -122,11 +126,8 @@ export default function PostForm() {
             )}
           />
           <Button className="dark:text-white" disabled={loading} type="submit">
-            {" "}
-            {loading && (
-              <LoaderIcon className="mr-2 h-4 w-4 animate-spin" />
-            )}{" "}
-            Envoyer
+            {loading && <LoaderIcon className="mr-2 h-4 w-4 animate-spin" />}
+            Send
           </Button>
         </form>
       </Form>
