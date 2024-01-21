@@ -11,10 +11,10 @@ export default function MainNav() {
   return (
     <div className="main-nav">
       <NavItem text="Posts" link="/posts">
-        <Files className="icon" />
+        <Files role="img" className="icon" />
       </NavItem>
       <NavItem text="New" link="/posts/form">
-        <PlusCircle className="icon" />
+        <PlusCircle role="img" className="icon" />
       </NavItem>
       <ThemeToggle setTheme={setTheme} />
     </div>
