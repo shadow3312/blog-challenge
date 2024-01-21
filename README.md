@@ -10,6 +10,7 @@ A simple blog management system using JSONPlaceholder API.
   - <a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a>
 
 - Frontend
+  - <a href="https://www.typescriptlang.org/">Typescript</a>
   - <a href="https://nextjs.org">Next.js 14</a>
   - <a href="https://tailwindcss.com/">Tailwind CSS</a>
 
